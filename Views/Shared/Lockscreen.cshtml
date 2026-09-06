@@ -1,0 +1,49 @@
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PLM | Bloqueado</title>
+	<link rel="stylesheet" href="/lib/adminlte/dist/css/adminlte.min.css">
+	<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+	<link rel="stylesheet" href="/css/site.css">
+</head>
+<body class="lockscreen bg-body-secondary">
+	<main class="lockscreen-wrapper">
+		<h1 class="lockscreen-logo">
+			<a asp-controller="Home" asp-action="Index"><b>PLM</b></a>
+		</h1>
+
+		<div class="lockscreen-item">
+			<div class="lockscreen-image">
+				<img src="/lib/adminlte/dist/assets/img/user2-160x160.jpg" alt="@User.Identity?.Name" />
+			</div>
+
+			<form class="lockscreen-credentials" asp-controller="Home" asp-action="Unlock" method="post">
+				<label class="visually-hidden" for="lockscreenUser">Usuario</label>
+				<div class="input-group">
+					<input id="lockscreenUser" type="text" class="form-control shadow-none"
+						   value="@User.Identity?.Name" readonly />
+					<div class="input-group-text border-0 bg-transparent px-1">
+						<button type="submit" class="btn shadow-none" aria-label="Acceder">
+							<i class="fas fa-sign-in-alt text-body-secondary"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="lockscreen-footer text-center">
+			Copyright &copy; 2026 <b>PLM</b>
+			<br />
+			Todos los derechos reservados
+		</div>
+	</main>
+
+	<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

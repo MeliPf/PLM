@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - PLM</title>
+	<link rel="stylesheet" href="/lib/adminlte/dist/css/adminlte.min.css">
+	<link rel="stylesheet" href="/css/site.css">
+	<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+	<link rel="stylesheet" href="/lib/flag-icon-css/css/flag-icon.min.css">
+</head>
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+	<div class="app-wrapper">
+
+		<!-- Navbar -->
+		@await Component.InvokeAsync("Navbar")
+
+		<!-- Main Sidebar -->
+		@await Component.InvokeAsync("MainSidebar")
+
+		<!-- App Main -->
+		<main class="app-main">
+			<!-- App Content Header -->
+			<div class="app-content-header">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-6">
+							<h1 class="mb-0 fs-3">@ViewData["Title"]</h1>
+						</div>
+						<div class="col-sm-6">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb float-sm-end">
+									<li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- App Content -->
+			<div class="app-content">
+				<div class="container-fluid">
+					@RenderBody()
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		@await Component.InvokeAsync("Footer")
+	</div>
+
+	<!-- jQuery (necesario para Select2 / DataTables) -->
+	<script src="/lib/jquery/dist/jquery.min.js"></script>
+	<!-- Bootstrap 5 -->
+	<script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE 4 -->
+	<script src="/lib/adminlte/dist/js/adminlte.min.js"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

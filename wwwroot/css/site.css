@@ -1,0 +1,9 @@
+/* CSS para alterar la plantilla de adminLTE */
+
+.lockscreen-item {
+    width: 350px !important;
+}
+
+.sidebar-brand {
+    height: 3.563rem !important;
+}
