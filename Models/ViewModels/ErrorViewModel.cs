@@ -1,4 +1,4 @@
-namespace PLM.Models
+namespace PLM.Models.ViewModels
 {
     public class ErrorViewModel
     {
