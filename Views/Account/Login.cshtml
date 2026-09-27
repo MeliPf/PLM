@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Iniciar sesión";
+    ViewData["OcultarMenu"] = true;
+}
+
+<main class="d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card shadow-sm text-center" style="width: 400px">
+            <div class="card-body text-center">
+                <p class="login-box-msg">Welcome to PLM</p>
+                <i class="fa-brands fa-windows fa-3x mb-3 text-primary"></i>
+                <a href="@Url.Action("Ingresar", "Account")" class="btn btn-primary btn-block d-flex align-items-center justify-content-center gap-2 mt-3">
+                    <i class="fa-brands fa-windows"></i>
+                    Sing in
+                </a>
+            </div>
+        </div>
+</main>

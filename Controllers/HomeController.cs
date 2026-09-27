@@ -1,5 +1,6 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PLM.Models;
+using PLM.Models.ViewModels;
 using System.Diagnostics;
 
 namespace PLM.Controllers
@@ -11,6 +12,12 @@ namespace PLM.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+        }
+
+        [AllowAnonymous]
+        public IActionResult AccesoDenegado()
+        {
+            return View();
         }
 
         public IActionResult Index()
@@ -37,7 +44,7 @@ namespace PLM.Controllers
         [HttpPost]
         public IActionResult Unlock()
         {
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Login", "Account");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

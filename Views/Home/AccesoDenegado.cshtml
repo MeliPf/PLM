@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Acceso Denegado";
+    Layout = null; // opcional: sin sidebar/navbar, ya que el usuario no está autorizado a ver el menú
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="hold-transition login-page">
+    <div class="text-center mt-5">
+        <i class="fa-solid fa-lock fa-4x text-danger mb-3"></i>
+        <h1>403</h1>
+        <h3>Acceso Denegado</h3>
+        <p>
+            Tu usuario de Windows no tiene acceso a este sistema.<br />
+            Contacta al administrador para que te asigne un rol.
+        </p>
+    </div>
+</body>
+</html>

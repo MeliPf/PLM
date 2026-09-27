@@ -7,36 +7,43 @@
 	<link rel="stylesheet" href="/lib/adminlte/dist/css/adminlte.min.css">
 	<link rel="stylesheet" href="/css/site.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/lib/flag-icon-css/css/flag-icon.min.css">
 </head>
-<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+<body class="@(ViewData["OcultarMenu"] as bool? == true ? "login-page bg-body-secondary" : "layout-fixed sidebar-expand-lg bg-body-tertiary")">
 	<div class="app-wrapper">
 
-		<!-- Navbar -->
-		@await Component.InvokeAsync("Navbar")
+		@if (ViewData["OcultarMenu"] as bool? != true)
+		{
+			<!-- Navbar -->
+			@await Component.InvokeAsync("Navbar")
 
-		<!-- Main Sidebar -->
-		@await Component.InvokeAsync("MainSidebar")
+			<!-- Main Sidebar -->
+			@await Component.InvokeAsync("MainSidebar")
+		}
 
 		<!-- App Main -->
 		<main class="app-main">
-			<!-- App Content Header -->
-			<div class="app-content-header">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-sm-6">
-							<h1 class="mb-0 fs-3">@ViewData["Title"]</h1>
-						</div>
-						<div class="col-sm-6">
-							<nav aria-label="breadcrumb">
-								<ol class="breadcrumb float-sm-end">
-									<li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
-								</ol>
-							</nav>
+			@if (ViewData["OcultarMenu"] as bool? != true)
+			{
+				<!-- App Content Header -->
+				<div class="app-content-header">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6">
+								<h1 class="mb-0 fs-3">@ViewData["Title"]</h1>
+							</div>
+							<div class="col-sm-6">
+								<nav aria-label="breadcrumb">
+									<ol class="breadcrumb float-sm-end">
+										<li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+									</ol>
+								</nav>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			}
 
 			<!-- App Content -->
 			<div class="app-content">
@@ -46,8 +53,11 @@
 			</div>
 		</main>
 
-		<!-- Footer -->
-		@await Component.InvokeAsync("Footer")
+		@if (ViewData["OcultarMenu"] as bool? != true)
+		{
+			<!-- Footer -->
+			@await Component.InvokeAsync("Footer")
+		}
 	</div>
 
 	<!-- jQuery (necesario para Select2 / DataTables) -->
